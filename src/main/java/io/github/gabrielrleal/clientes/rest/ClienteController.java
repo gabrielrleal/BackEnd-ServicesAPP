@@ -12,10 +12,10 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/clientes")
-@CrossOrigin("http://localhost:4200")
+
 public class ClienteController {
 
-    private ClienteRepository repository;
+    private final ClienteRepository repository;
 
     @Autowired
     public ClienteController(ClienteRepository repository) {
@@ -44,6 +44,7 @@ public class ClienteController {
     }
 
     @DeleteMapping("{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deletar(@PathVariable Integer id) {
         repository
                 .findById(id)

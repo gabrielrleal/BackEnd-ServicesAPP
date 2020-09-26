@@ -6,12 +6,15 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.br.CPF;
+import org.springframework.format.annotation.DateTimeFormat;
 
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
 
 
 @Entity
@@ -36,8 +39,8 @@ public class Cliente {
     private String cpf;
 
 
-    @Column(name = "data_cadastro", updatable = false)
-    @JsonFormat(pattern = "dd/MM/YYYY")
+    @Column(name = "data_cadastro", updatable = false)//
+    //@JsonFormat(pattern = "dd/MM/YYYY")
     private LocalDate dataCadastro;
 
 
